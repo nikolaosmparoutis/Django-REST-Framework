@@ -1,0 +1,13 @@
+  #  Upload Django app using git commands.
+  
+  cd C:\Users\nikos.baroutis\PycharmProjects\Django
+  git init
+  git status
+  cat README,md
+  git .
+  git add .
+  git commit -m "Adding my mini project, Online Courses."
+  git status
+  git log
+  git remote add origin https://github.com/nikolaosmparoutis/Django-REST-Framework.git
+  git push -u origin master
