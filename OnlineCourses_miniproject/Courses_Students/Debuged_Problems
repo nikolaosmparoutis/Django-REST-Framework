@@ -1,0 +1,39 @@
+*
+-AssertionError: Class StudentsSerializer missing Meta.model attribute
+Sol:
+In serializers.py write model, no models
+   class Meta:
+        model = Students
+*
+
+*To set id as link to redirect to must be named <url>. Url is a reserved word for urls.
+
+* Set blank=True in models.py 's fields if you have Many to Many relationship model with auto_now_add / auto_now
+
+*AssertionError: `basename` argument not specified, and could not automatically determine the name from the viewset,
+as it does not have a `.queryset` attribute.
+Sol: in urls.py
+router.register('CourseCategory', views.CourseCategoryView)
+
+
+*You are trying to add a non-nullable field 'new_field' to userprofile without a default
+https://stackoverflow.com/questions/26185687/you-are-trying-to-add-a-non-nullable-field-new-field-to-userprofile-without-a
+ blank=True, null=True
+ models.ForeignKey(to=CourseCategory, on_delete=models.CASCADE, blank=True, null=True)
+
+* TypeError: CASCADE() missing 4 required positional arguments: 'collector', 'field', 'sub_objs', and 'using'
+ManytoMany does not allow this, this is mandatory only in M:1.
+
+What is a through table:
+the through table maps the intermediary table that is always created in a many-to-many relationship.
+The only difference is that you only need to specify it manually if you want to add EXTRA information
+to that relationship, like the enrollment DATE in your link. If you don't need the extra fields,
+you DO NOT need to specify the intermediary model, but the table STILL exists, containing just
+the FOREIGN keys to each end of the M2M relationship.
+
+ * django.db.utils.OperationalError: no such column:
+ A cursor problem applied in models. Delete the DML operation (delete, insert, update) in global scale.
+ Remove them from the admin.py or in models.py
+
+* in ordering no such column: StudentsEnrollsToCourses.date_enrolled
+After <ordering=> use the related_name to the other model and <related_name>__<model object>

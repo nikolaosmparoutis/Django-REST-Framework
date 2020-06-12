@@ -1,0 +1,13 @@
+# First tutorial
+https://www.youtube.com/watch?v=263xt_4mBNc
+
+#Extend Models supporting DB relationships
+https://www.youtube.com/watch?v=QB9gGEwxxM4
+
+# platform for Debuging HTTP requests looking at them from the client's side.
+https://www.postman.com/downloads/
+
+
+#for u/down scaling to servers use wsgi.py, uWSGI.
+ for caching all the site in the browser use Varnish
+https://www.digitalocean.com/community/tutorials/how-to-scale-django-beyond-the-basics

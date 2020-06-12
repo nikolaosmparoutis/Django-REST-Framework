@@ -1,0 +1,58 @@
+   ********************************************************
+    The depedences and the terminal commands are with TAB
+    the general work flow where we explain things is without TAB
+    ****8**************************************************
+    python -m pip install Django
+    pip install djangorestframework
+#creation
+    django-admin startproject first_api_example
+    cd first_api_example
+    python manage.py migrate
+    python manage.py createsuperuser
+
+
+#Create an app named <Courses_Students> inside the project
+    python manage.py startapp Courses_Students
+
+#Add 'rest_framework' and 'Courses_Students' to INSTALLED_APPS list, in file settings.py
+
+#Create the urls to point urls to Courses_Students app, use the urls.py
+#in Courses_Students create a urls.py file.
+
+#Create models with tables and attributes.
+#Migrade everytime after every model changes, only models.
+    python manage.py makemigrations
+#Repeat the above after every addition/alternation
+    python manage.py migrate
+
+#Access the admin page
+#Rerun the server after code alternations
+    python manage.py runserver
+
+    http://127.0.0.1:8000/admin
+    type the superuser credentials
+
+# Create the serializer(s) to sent the models' content in format acceptable by HTTP(s) and to receive. This format is JSON.
+# serializers.py are in the in the <Courses_Students> app
+
+#Create the viewsets to pass/get the HTTP functionality with the DB
+
+#Create the routers in urls.py of my app, ROUTE all the URLS of the app for the HTTP(s) communication with my DB.
+
+# Create permissions in model's fields to allow only the logged in users to access.
+    in urls.py in api directory add the urls to connect the New Api we named our api <api-auth>
+     and include the functionality the rest framework:
+    path('api-auth/', include('rest_framework.urls'))
+    then in views.py create the Tuple of permission in your choosen view and it is visible only when you are logged in.
+    OR
+    instead of  permission in each view you can set the permission on settings.py
+    REST_FRAMEWORK = {'DEFAULT_PERMISSION_CLASSES': (permissions.IsAuthenticatedOrReadOnly,)}
+
+ *insgtall a JSON tokken authentication for security reasons
+    pip install djangorestframework_simplejwt
+
+ *give to users the created tokkens. In global api's urls.py after the imported classes:
+
+   path ('api/tokken', TokenObtainPairView.as_view()),
+   path('api/tokken/refresh', TokenRefreshView.as_view())
+
