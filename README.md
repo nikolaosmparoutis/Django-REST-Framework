@@ -1,3 +1,3 @@
 # Django-REST-Framework
-Django REST Framework mini project Online Courses
-with students,courses, tokken authentication, permissions and ordering the students.
+mini project for Online Courses
+with students,courses, tokken authentication, permissions and ordering in students.
